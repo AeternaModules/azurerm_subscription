@@ -1,3 +1,7 @@
+output "subscriptions_id" {
+  description = "Map of id values across all subscriptions, keyed the same as var.subscriptions"
+  value       = { for k, v in azurerm_subscription.subscriptions : k => v.id }
+}
 output "subscriptions_alias" {
   description = "Map of alias values across all subscriptions, keyed the same as var.subscriptions"
   value       = { for k, v in azurerm_subscription.subscriptions : k => v.alias }
